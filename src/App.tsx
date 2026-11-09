@@ -1,30 +1,24 @@
 import Navbar from './components/Navbar'
-import './App.css'
 import Hero from './components/Hero'
+import Work from './components/Work'
+import Services from './components/Services'
+import About from './components/About'
+import Contact from './components/Contact'
+import Footer from './components/Footer'
+import './App.css'
+
 function App() {
   return (
     <>
       <Navbar />
-
       <main>
         <Hero />
-
-        <section id="work">
-          <h2>Selected Work</h2>
-        </section>
-
-        <section id="services">
-          <h2>What I Do</h2>
-        </section>
-
-        <section id="about">
-          <h2>About Me</h2>
-        </section>
-
-        <section id="contact">
-          <h2>Let's Work Together</h2>
-        </section>
+        <Work />
+        <Services />
+        <About />
+        <Contact />
       </main>
+      <Footer />
     </>
   )
 }
