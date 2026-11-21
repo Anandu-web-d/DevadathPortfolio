@@ -1,0 +1,552 @@
+
+/* =========================================
+   DEVADATHAN PORTFOLIO — HERO DESIGN
+========================================= */
+
+.hero {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  height: 100svh;
+  overflow: hidden;
+  isolation: isolate;
+  background: #f6f3ef;
+  color: #101010;
+  display: block;
+}
+
+/* Decorative circle behind the portrait */
+
+.hero-circle {
+  position: absolute;
+  width: min(43vw, 570px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: #ebe7e2;
+  left: 26%;
+  top: 15%;
+  z-index: 0;
+}
+
+/* Top introduction */
+
+.hero-intro {
+  position: absolute;
+  top: 19%;
+  left: 6%;
+  z-index: 4;
+  border-left: 2px solid #111;
+  padding-left: 22px;
+  display: flex;
+  flex-direction: column;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  line-height: 1.5;
+}
+
+/* Supporting captions */
+
+.hero-left-caption,
+.hero-right-caption {
+  position: absolute;
+  top: 35%;
+  z-index: 4;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+}
+
+.hero-left-caption {
+  left: 6%;
+}
+
+.hero-right-caption {
+  right: 6%;
+  text-align: right;
+}
+
+/* Main typography */
+
+.hero-title-wrapper {
+  position: absolute;
+  top: 43%;
+  left: 3.5%;
+  width: 93%;
+  z-index: 1;
+}
+
+.hero-title {
+  font-size: clamp(90px, 17vw, 260px);
+  font-weight: 700;
+  font-style: italic;
+  line-height: 0.85;
+  letter-spacing: -0.095em;
+  white-space: nowrap;
+}
+
+/* Portrait */
+
+.hero-character {
+  position: absolute;
+  left: 23%;
+  bottom: 0;
+  width: 34%;
+  height: 88%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.hero-character-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: bottom center;
+}
+/* Typography blending through the portrait */
+/* PORTRAIT-MASKED TYPOGRAPHY */
+
+/* =========================================
+   PORTRAIT TYPOGRAPHY INTERACTION
+========================================= */
+
+.hero-character {
+  z-index: 2;
+}
+
+/* Full hero coordinate system */
+
+.hero-title-mask {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+
+  -webkit-mask-image: var(--portrait-mask);
+  mask-image: var(--portrait-mask);
+
+  -webkit-mask-size: 34% 88%;
+  mask-size: 34% 88%;
+
+  -webkit-mask-position: left 23% bottom 0;
+  mask-position: left 23% bottom 0;
+
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+}
+
+/* Same position and dimensions as black typography */
+
+.hero-title-mask .hero-title {
+  position: absolute;
+  top: 43%;
+  left: 3.5%;
+  width: 93%;
+
+  color: rgba(255, 255, 255, 0.55);
+  white-space: nowrap;
+  mix-blend-mode: screen;
+}
+/* Name and description */
+
+.hero-name {
+  position: absolute;
+  left: 6%;
+  bottom: 14%;
+  z-index: 4;
+}
+
+.name-line {
+  display: block;
+  width: 40px;
+  height: 3px;
+  background: #111;
+  margin-bottom: 12px;
+}
+
+.hero-name h2 {
+  font-size: clamp(25px, 3vw, 42px);
+  font-weight: 700;
+  letter-spacing: -0.06em;
+}
+
+.hero-name p {
+  margin-top: 12px;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.17em;
+  line-height: 1.5;
+}
+
+/* Scroll indicator */
+
+.scroll-indicator {
+  position: absolute;
+  right: 17%;
+  bottom: 17%;
+  z-index: 4;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  font-size: 12px;
+  letter-spacing: 0.2em;
+}
+
+.scroll-arrow {
+  font-size: 35px;
+  line-height: 1;
+}
+
+/* Footer */
+
+.hero-footer {
+  position: absolute;
+  left: 5%;
+  right: 5%;
+  bottom: 4%;
+  z-index: 4;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+}
+
+.footer-line {
+  height: 1px;
+  background: #c9c5c0;
+  flex: 1;
+  position: relative;
+}
+
+.footer-line span {
+  display: block;
+  width: 12%;
+  height: 2px;
+  background: #111;
+}
+
+/* Responsive layout */
+
+@media (max-width: 768px) {
+  .hero-title-mask {
+  left: -18.46%;
+  top: -3.64%;
+  width: 143.08%;
+}
+
+  .hero {
+    min-height: 850px;
+    height: 100svh;
+  }
+
+  .hero-intro {
+    top: 17%;
+    left: 6%;
+    font-size: 10px;
+  }
+
+  .hero-left-caption {
+    top: 29%;
+    left: 6%;
+    font-size: 9px;
+  }
+
+  .hero-right-caption {
+    top: 34%;
+    right: 6%;
+    font-size: 9px;
+  }
+
+  .hero-title-wrapper {
+    top: 43%;
+    left: 3%;
+  }
+
+  .hero-title {
+    font-size: 17vw;
+  }
+
+  .hero-circle {
+    width: 75vw;
+    left: 17%;
+    top: 30%;
+  }
+
+  .hero-character {
+    left: 15%;
+    width: 65%;
+    height: 55%;
+  }
+
+  .hero-name {
+    left: 6%;
+    bottom: 17%;
+  }
+
+  .hero-name h2 {
+    font-size: 25px;
+  }
+
+  .hero-name p {
+    font-size: 9px;
+  }
+
+  .scroll-indicator {
+    right: 7%;
+    bottom: 20%;
+    font-size: 9px;
+  }
+
+  .hero-footer {
+    left: 5%;
+    right: 5%;
+    bottom: 5%;
+    gap: 12px;
+    font-size: 8px;
+  }
+}
+/* Floating navigation */
+
+nav {
+  position: fixed;
+  top: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 36px;
+
+  width: max-content;
+  max-width: calc(100% - 32px);
+  padding: 14px 28px;
+
+  background: rgba(255, 255, 255, 0.75);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 100px;
+  backdrop-filter: blur(16px);
+}
+
+nav div {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+nav a {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+/* Hero spacing correction */
+
+#home {
+  padding: 0;
+  min-height: 100svh;
+  height: 100svh;
+}
+
+.hero-name {
+  left: 6%;
+  bottom: 15%;
+  max-width: 260px;
+}
+
+.hero-name h2 {
+  position: relative;
+  z-index: 5;
+}
+
+
+/* =========================================
+   DEVADATHAN — CINEMATIC INTRO ANIMATION
+========================================= */
+
+/* 01 — Opening typography */
+
+.hero-intro {
+  animation: introReveal 0.9s ease-out 0.3s both;
+}
+
+/* 02 — Supporting captions */
+
+.hero-left-caption,
+.hero-right-caption {
+  animation: introReveal 0.9s ease-out 1.2s both;
+}
+
+/* 03 — Main PORTFOLIO typography */
+
+.hero-title-wrapper {
+  animation: titleReveal 1.5s
+    cubic-bezier(0.16, 1, 0.3, 1) 1.8s both;
+}
+
+/* 04 — Circular background */
+
+.hero-circle {
+  animation: circleReveal 1.6s
+    cubic-bezier(0.16, 1, 0.3, 1) 2.8s both;
+}
+
+/* 05 — Portrait entrance */
+
+.hero-character {
+  animation: portraitReveal 1.8s
+    cubic-bezier(0.16, 1, 0.3, 1) 3.6s both;
+}
+
+/* 06 — Personal identity */
+
+.hero-name {
+  animation: introReveal 1s ease-out 5.5s both;
+}
+
+/* 07 — Scroll indicator */
+
+.scroll-indicator {
+  animation: introReveal 1s ease-out 6.3s both;
+}
+
+/* 08 — Footer */
+
+.hero-footer {
+  animation: footerReveal 1s ease-out 6.8s both;
+}
+
+/* 09 — Navigation */
+
+nav {
+  animation: navigationReveal 1s
+    cubic-bezier(0.16, 1, 0.3, 1) 0.2s both;
+}
+
+/* =========================================
+   KEYFRAMES
+========================================= */
+
+/* General text entrance */
+
+@keyframes introReveal {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Typography masked reveal */
+
+@keyframes titleReveal {
+  from {
+    opacity: 0;
+    transform: translateY(100px) scale(0.96);
+    clip-path: inset(100% 0 0 0);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+/* Circle expansion */
+
+@keyframes circleReveal {
+  from {
+    opacity: 0;
+    transform: scale(0.65);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Character rises into foreground */
+
+@keyframes portraitReveal {
+  from {
+    opacity: 0;
+    transform: translateY(180px) scale(0.94);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Footer entrance */
+
+@keyframes footerReveal {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Navigation entrance */
+
+@keyframes navigationReveal {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}
+.hero-title-mask .hero-title {
+  animation: titleReveal 1.5s
+    cubic-bezier(0.16, 1, 0.3, 1) 1.8s both;
+}
+/* =========================================
+   REDUCED MOTION ACCESSIBILITY
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-intro,
+  .hero-left-caption,
+  .hero-right-caption,
+  .hero-title-wrapper,
+  .hero-circle,
+  .hero-character,
+  .hero-name,
+  .scroll-indicator,
+  .hero-footer,
+  nav {
+    animation: none !important;
+    opacity: 1;
+    transform: none;
+    clip-path: none;
+    
+  }
+  .hero-title-mask {
+  left: -18.46%;
+  top: -3.64%;
+  width: 143.08%;
+}
+}
