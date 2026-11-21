@@ -31,7 +31,8 @@ function Navbar() {
     <>
       <nav className={`site-nav ${scrolled ? 'is-scrolled' : ''}`}>
         <a href="#home" className="nav-brand" onClick={() => setMobileMenuOpen(false)}>
-          DEVADATHAN.
+          <span className="brand-dot" aria-hidden="true" />
+          <span>DeepInTales</span>
         </a>
 
         <div className="nav-links">

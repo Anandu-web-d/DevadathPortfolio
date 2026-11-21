@@ -5,86 +5,97 @@ interface ServiceItem {
   tagline: string
   deliverables: string[]
   isPrimary?: boolean
-  caveat?: string
 }
 
 const services: ServiceItem[] = [
   {
     id: 'cinematic',
     number: '01',
-    title: 'Cinematic Editing & Storytelling',
-    tagline: 'Primary Specialism — Crafting immersive visual flow and emotional pacing.',
+    title: 'Cinematic Video Editing',
+    tagline: 'Primary specialism — Crafting immersive visual flow, narrative tension, and emotional pacing.',
     deliverables: [
-      'Story-driven timeline pacing & narrative continuity',
-      'Precise music and beat synchronization',
-      'Dramatic tension, micro-pauses & crescendo building',
-      'B-roll weave and cinematic transitions',
+      'Story-driven timeline assembly & pacing',
+      'Precise sound design & beat synchronization',
+      'Dramatic micro-pauses & crescendo building',
+      'Atmospheric B-roll weaving & seamless transitions',
     ],
     isPrimary: true,
   },
   {
     id: 'short-form',
     number: '02',
-    title: 'Short-Form Content & Reels',
-    tagline: 'High retention hooks and snappy visual momentum designed for social algorithms.',
+    title: 'Instagram Reels & Short-Form Editing',
+    tagline: 'High-retention hooks and snappy visual momentum designed for modern digital audiences.',
     deliverables: [
       'First-3-second scroll-stopping hooks',
-      'Fast-cut kinetic pacing & beat matching',
-      'Dynamic captions, text punch-ins & sound effects',
-      'Optimized 9:16 vertical delivery',
+      'Kinetic cuts & frame-accurate audio sync',
+      'Dynamic typography, captions & sound effects',
+      'Optimized 9:16 vertical delivery for Reels & Shorts',
     ],
   },
   {
     id: 'long-form',
     number: '03',
-    title: 'Long-Form & YouTube Videos',
-    tagline: 'Sustained engagement and structured pacing for documentaries, podcasts and essays.',
+    title: 'YouTube Long-Form Editing',
+    tagline: 'Sustained engagement and structured pacing for documentaries, video essays, and narratives.',
     deliverables: [
-      'Multi-cam assembly & dialogue smoothing',
-      'Section chaptering & visual breathing room',
-      'Soundscapes, audio sweetening & ambient layers',
-      'Consistent retention curve optimization',
+      'Multi-cam editing & dialogue smoothing',
+      'Chaptering & visual breathing room',
+      'Soundscape layering & ambient sweetening',
+      'Retention curve optimization across the entire cut',
     ],
   },
   {
     id: 'promotional',
     number: '04',
-    title: 'Promotional & Commercial Edits',
-    tagline: 'Impactful video presentations that spotlight products, campaigns, and events.',
+    title: 'Promotional Videos',
+    tagline: 'High-impact commercial and event presentations that spotlight brands, launches, and experiences.',
     deliverables: [
       'Brand showcase & product launch cutdowns',
-      'Event & concert recap highlights',
+      'Concert & live event recap films',
       'Call-to-action visual integration',
-      'Multi-platform export packages',
+      'Multi-format export packages for web and broadcast',
     ],
   },
   {
-    id: 'motion-colour',
+    id: 'motion-graphics',
     number: '05',
-    title: 'Colour Toning & Motion Accents',
-    tagline: 'Clean aesthetic enhancement with honest, intentional scope.',
+    title: 'Motion Graphics',
+    tagline: 'Dynamic typographic treatments, title cards, and animated brand accents.',
     deliverables: [
-      'Atmospheric mood colour toning & skin balance',
-      'Minimalist lower thirds, title cards & logos',
-      'Seamless speed-ramping and light leak transitions',
+      'Custom title sequences & lower thirds',
+      'Kinetic text animations & intro bumpers',
+      'Logo animations & visual HUD overlays',
+      'Dynamic transitions & split-screen choreography',
     ],
-    caveat:
-      'Motion graphics and heavy colour grading offered within practical scope; focus remains on editing craftsmanship.',
+  },
+  {
+    id: 'colour-grading',
+    number: '06',
+    title: 'Colour Grading',
+    tagline: 'Mood-enhancing palette toning, skin tone balance, and cinematic look development.',
+    deliverables: [
+      'Atmospheric look development (warm amber, teal/orange, monochrome)',
+      'Natural skin tone preservation & balance',
+      'Shot-to-shot scene continuity matching',
+      'Rec.709 mastering for social and online streaming',
+    ],
   },
   {
     id: 'graphic-design',
-    number: '06',
-    title: 'Graphic Design & Posters',
-    tagline: 'Complementary design skills for matchday posters, thumbnails, and key art.',
+    number: '07',
+    title: 'Graphic Design',
+    tagline: 'Visual art, matchday sports posters, key art, and editorial promotional layouts.',
     deliverables: [
-      'High-impact social matchday / fixture posters',
-      'YouTube thumbnail concepts with high CTR',
-      'Visual asset typography and asset isolation',
+      'Sports matchday & fixture posters',
+      'Key art and film tribute posters',
+      'YouTube thumbnail designs with high CTR',
+      'Visual asset isolation, typography & Swiss grid layout',
     ],
   },
 ]
 
-function Services() {
+export function Services() {
   return (
     <section className="section-services" id="services">
       <div className="section-container">
@@ -92,6 +103,7 @@ function Services() {
         <div className="section-header">
           <div className="section-eyebrow">
             <span className="eyebrow-num">03 / 05</span>
+            <span className="eyebrow-divider" aria-hidden="true">—</span>
             <span className="eyebrow-label">CAPABILITIES</span>
           </div>
           <h2 className="section-title">
@@ -129,12 +141,6 @@ function Services() {
                   </li>
                 ))}
               </ul>
-
-              {service.caveat && (
-                <div className="service-caveat">
-                  <span className="caveat-marker">*</span> {service.caveat}
-                </div>
-              )}
             </div>
           ))}
         </div>
@@ -145,23 +151,23 @@ function Services() {
           <div className="workflow-steps">
             <div className="workflow-step">
               <span className="step-idx">STEP 01</span>
-              <h4>Vision & Brief</h4>
-              <p>Reviewing raw footage, discussing references, narrative tone, and deliverables.</p>
+              <h4>Vision &amp; Brief</h4>
+              <p>Reviewing raw footage, references, narrative tone, and project deliverables.</p>
             </div>
             <div className="workflow-step">
               <span className="step-idx">STEP 02</span>
-              <h4>Assembly & Cut</h4>
+              <h4>Assembly &amp; Cut</h4>
               <p>Crafting the rough cut, finding natural rhythm, and sculpting timing to the audio.</p>
             </div>
             <div className="workflow-step">
               <span className="step-idx">STEP 03</span>
-              <h4>Polish & Audio</h4>
-              <p>Sound design layer, subtle colour mood grading, and fine title placements.</p>
+              <h4>Polish &amp; Sound</h4>
+              <p>Multi-layered sound design, colour grading, title cards, and kinetic accents.</p>
             </div>
             <div className="workflow-step">
               <span className="step-idx">STEP 04</span>
-              <h4>Refine & Deliver</h4>
-              <p>Revisions based on client notes and delivery in master high-res formats.</p>
+              <h4>Master &amp; Deliver</h4>
+              <p>Revisions based on feedback and export in master high-res deliverables.</p>
             </div>
           </div>
         </div>

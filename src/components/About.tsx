@@ -1,4 +1,55 @@
+import { useState, useEffect, useRef } from 'react'
+
 function About() {
+  const [hasAnimated, setHasAnimated] = useState(false)
+  const [counts, setCounts] = useState({ years: 0, projects: 0, commitment: 0 })
+  const statsRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !hasAnimated) {
+          setHasAnimated(true)
+        }
+      },
+      { threshold: 0.25 }
+    )
+
+    if (statsRef.current) {
+      observer.observe(statsRef.current)
+    }
+
+    return () => observer.disconnect()
+  }, [hasAnimated])
+
+  useEffect(() => {
+    if (!hasAnimated) return
+
+    const duration = 1400 // ms
+    const startTime = performance.now()
+
+    const step = (currentTime: number) => {
+      const elapsed = currentTime - startTime
+      const progress = Math.min(elapsed / duration, 1)
+      // Ease out cubic
+      const ease = 1 - Math.pow(1 - progress, 3)
+
+      setCounts({
+        years: Math.floor(ease * 6),
+        projects: Math.floor(ease * 150),
+        commitment: Math.floor(ease * 100),
+      })
+
+      if (progress < 1) {
+        requestAnimationFrame(step)
+      } else {
+        setCounts({ years: 6, projects: 150, commitment: 100 })
+      }
+    }
+
+    requestAnimationFrame(step)
+  }, [hasAnimated])
+
   return (
     <section className="section-about" id="about">
       <div className="section-container">
@@ -94,17 +145,17 @@ function About() {
         </div>
 
         {/* Milestone Numbers */}
-        <div className="about-stats">
+        <div className="about-stats" ref={statsRef}>
           <div className="stat-box">
-            <span className="stat-number">6+</span>
+            <span className="stat-number">{hasAnimated ? `${counts.years}+` : '6+'}</span>
             <span className="stat-label">YEARS EDITING EXPERIENCE</span>
           </div>
           <div className="stat-box">
-            <span className="stat-number">150+</span>
+            <span className="stat-number">{hasAnimated ? `${counts.projects}+` : '150+'}</span>
             <span className="stat-label">PROJECTS & EDITS CRAFTED</span>
           </div>
           <div className="stat-box">
-            <span className="stat-number">100%</span>
+            <span className="stat-number">{hasAnimated ? `${counts.commitment}%` : '100%'}</span>
             <span className="stat-label">COMMITTED TO STORYTELLING</span>
           </div>
           <div className="stat-box">
